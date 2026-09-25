@@ -25,4 +25,11 @@ jobs:
             -sdk iphoneos \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
+            CONFIGURATION_BUILD_DIR="$GITHUB_WORKSPACE/build" \
             build
+
+      - name: Upload app
+        uses: actions/upload-artifact@v4
+        with:
+          name: 3105-app
+          path: build/3105.app
