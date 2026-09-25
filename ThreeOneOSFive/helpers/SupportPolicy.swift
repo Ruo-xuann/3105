@@ -12,6 +12,8 @@ enum ExploitSupportPolicy {
         (4, 2, "24A5390f")
     ]
 
+    static let verifiedIOS27FinalBuild = "24A437"
+
     static func iOS27BetaNumber(for build: String) -> Int? {
         verifiedIOS27Builds.first { $0.build == build }?.beta
     }
@@ -45,6 +47,6 @@ enum ExploitSupportPolicy {
         }
 
         guard major == 27, minor == 0, patch == 0 else { return false }
-        return iOS27BetaNumber(for: build) != nil
+        return iOS27BetaNumber(for: build) != nil || build == verifiedIOS27FinalBuild
     }
 }
